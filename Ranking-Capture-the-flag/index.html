@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Ranking Capture a Bandeira</title>
+ <link rel="stylesheet" href="gh-fork-ribbon.css" />
+
+</head>
+<body>
+<table>
+  <tr>
+    <th>DAAPAA</th>
+  </tr>
+  <tr>
+    <td>Instagram Likes: <input type="text" class="data" id="instaLikesAP" /></td>
+  </tr>
+  <tr>
+    <td>Instagram comentários: <input type="text" class="data" id="instaComAP"/></td>
+  </tr>
+  <tr>
+    <td>Facebook Likes: <input type="text" class="data" id="faceLikesAP"/></td>
+  </tr>
+  <tr>
+    <td>Facebook comentários: <input type="text" class="data" id="faceComAP"/></td>
+  </tr>
+  <tr>
+    <th>HZAH</th>
+  </tr>
+  <tr>
+    <td>Instagram Likes: <input type="text" class="data" id="instaLikesHZ" /></td>
+  </tr>
+  <tr>
+    <td>Instagram comentários: <input type="text" class="data" id="instaComHZ"/></td>
+  </tr>
+  <tr>
+    <td>Facebook Likes: <input type="text" class="data" id="faceLikesHZ"/></td>
+  </tr>
+  <tr>
+    <td>Facebook comentários: <input type="text" class="data" id="faceComHZ"/></td>
+  </tr>
+</table>
+
+<button onclick="getValues()">Enviar</button>
+
+<script type="text/javascript">
+
+function getValues(){
+
+var instaLikesAP = document.getElementById("instaLikesAP");
+var instaPontosAP = instaLikesAP.value * 25;
+var instaComAP = document.getElementById("instaComAP");
+var instasaldoAP = instaPontosAP - instaComAP.value;
+var faceLikesAP = document.getElementById("faceLikesAP");
+var facePontosAP = faceLikesAP.value * 25;
+var faceComAP = document.getElementById("faceComAP");
+var faceSaldoAP = facePontosAP - faceComAP.value;
+var saldoTotalAP = instasaldoAP + faceSaldoAP;
+document.getElementById("RelatorioAP").innerHTML = "*DAAPAA*<br>"+
+"_Instagram_<br>"+instaLikesAP.value+" Likes = "+instaPontosAP+" pontos<br>"+instaComAP.value+" Comentários<br>"+"Saldo: "+instasaldoAP+
+"<br>_Facebook_<br>"+faceLikesAP.value+" Likes = "+facePontosAP+" pontos<br>"+faceComAP.value+" Comentários<br>"+"Saldo: "+faceSaldoAP+
+"<br>*Saldo Total: "+saldoTotalAP+"*";
+
+var instaLikesHZ = document.getElementById("instaLikesHZ");
+var instaPontosHZ = instaLikesHZ.value * 25;
+var instaComHZ = document.getElementById("instaComHZ");
+var instasaldoHZ = instaPontosHZ - instaComHZ.value;
+var faceLikesHZ = document.getElementById("faceLikesHZ");
+var facePontosHZ = faceLikesHZ.value * 25;
+var faceComHZ = document.getElementById("faceComHZ");
+var faceSaldoHZ =facePontosHZ - faceComHZ.value;
+var saldoTotalHZ = instasaldoHZ + faceSaldoHZ;
+document.getElementById("RelatorioHZ").innerHTML = "*HZAH*<br>"+
+"_Instagram_<br>"+instaLikesHZ.value+" Likes = "+instaPontosHZ+" pontos<br>"+instaComHZ.value+" Comentários<br>"+"Saldo: "+instasaldoHZ+
+"<br>_Facebook_<br>"+faceLikesHZ.value+" Likes = "+facePontosHZ+" pontos<br>"+faceComHZ.value+" Comentários<br>"+"Saldo: "+faceSaldoHZ+
+"<br>*Saldo Total: "+saldoTotalHZ+"*";
+
+
+if(saldoTotalAP>saldoTotalHZ){document.getElementById("melhor").innerHTML = "DAAPAA está na frente!!!";}
+else {document.getElementById("melhor").innerHTML = "HZAH está na frente.";}
+
+}
+
+</script>
+<br><br>
+Para criar o relatório insira os dados e clique em Enviar.<br>
+Depois basta copiar e colar no grupo do whatsapp, as marcações de negrito e itálico já estão prontas.
+<br>
+<h3><b>Relatório:</b></h3>
+<br> <br> <br>
+
+*Ranking do Capture a Bandeira*
+
+<p id="RelatorioAP"></p>
+<p id="RelatorioHZ">
+<p id="melhor"></p>
+</body>
+</html>
